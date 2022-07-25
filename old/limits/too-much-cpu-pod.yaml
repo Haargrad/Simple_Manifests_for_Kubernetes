@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: too-much-cpu-pod
+spec:
+  containers:
+  - name: too-much-cpu-pod
+    image: nginx
+    resources:
+      limits:
+        cpu: "3"
+        memory: 100Mi
