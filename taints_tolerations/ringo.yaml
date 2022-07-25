@@ -1,0 +1,21 @@
+# originally from http://kubernetesbyexample.com/labels/
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ringo
+  labels:
+    env: "ringo"
+    band: beatles
+spec:
+  containers:
+  - name: sise
+    image: mhausenblas/simpleservice:0.5.0
+    ports:
+    - containerPort: 9876
+  tolerations:
+  - key: "band"
+    operator: "Equal"
+    value: "beatles"
+    effect: "NoSchedule"
+
